@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "630968193579",
+    "project_id": "coding-books-682e8",
+    "storage_bucket": "coding-books-682e8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:630968193579:android:ea24c2a9a8d3944116d06e",
+        "android_client_info": {
+          "package_name": "com.coshield.codingbooks"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "630968193579-buh4a0negk93pgcmkanhhtmgq77nh6je.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNqUY9NW2eoAxSuDyL-U4hYBNIbhPGjK0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "630968193579-buh4a0negk93pgcmkanhhtmgq77nh6je.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

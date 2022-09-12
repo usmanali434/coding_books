@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -39,42 +40,43 @@ public class RegisterActivity extends AppCompatActivity {
 
 
         progressDialog = new ProgressDialog(this);
-        mAuth=FirebaseAuth.getInstance();
-        mUser=mAuth.getCurrentUser();
+        mAuth = FirebaseAuth.getInstance();
+        mUser = mAuth.getCurrentUser();
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        email_box=findViewById(R.id.email_box);
-        pass_box=findViewById(R.id.pass_box);
-        confirm_pass=findViewById(R.id.confirm_pass);
+        email_box = findViewById(R.id.email_box);
+        pass_box = findViewById(R.id.pass_box);
+        confirm_pass = findViewById(R.id.confirm_pass);
 
 
-
-        alreadyhaveacc=findViewById(R.id.alreadyhaveacc);
+        alreadyhaveacc = findViewById(R.id.alreadyhaveacc);
         alreadyhaveacc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent al = new Intent(RegisterActivity.this,MainActivity.class);
+                Intent al = new Intent(RegisterActivity.this, MainActivity.class);
                 startActivity(al);
 
             }
         });
 
+        btnRegister = findViewById(R.id.btn_Register);
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PerforAuth();
+            PerforAuth();
             }
         });
 
     }
+
 
     private void PerforAuth() {
 
         String email = email_box.getText().toString();
         String password = pass_box.getText().toString();
         String confrimPassword = confirm_pass.getText().toString();
-        if (email.matches(emailPattern))
+        if (!email.matches(emailPattern))
         {
             email_box.setError("Enter Email is Invalid");
             email_box.requestFocus();
@@ -100,10 +102,6 @@ public class RegisterActivity extends AppCompatActivity {
                    if (task.isSuccessful())
 
                    {
-                       progressDialog.dismiss();
-                       sendUserToNextActivity();
-                       Toast.makeText(RegisterActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
-
                    }else
                    {
                        progressDialog.dismiss();
